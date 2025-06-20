@@ -66,8 +66,7 @@ $STD apt-get install --no-install-recommends -y \
   mesa-vulkan-drivers \
   ocl-icd-libopencl1 \
   tini \
-  zlib1g \
-  libc6
+  zlib1g
 $STD apt-get install -y \
   libgdk-pixbuf-2.0-dev librsvg2-dev libtool
 curl -fsSL https://repo.jellyfin.org/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
@@ -90,6 +89,8 @@ msg_ok "Dependencies Installed"
 read -r -p "Install OpenVINO dependencies for Intel HW-accelerated machine-learning? y/N " prompt
 if [[ ${prompt,,} =~ ^(y|yes)$ ]]; then
   msg_info "Installing OpenVINO dependencies"
+  $STD apt-get install -t testing --no-install-recommends -y \
+    libc6 libzstd1 libstdc++6
   touch ~/.openvino
   tmp_dir=$(mktemp -d)
   $STD pushd "$tmp_dir"
