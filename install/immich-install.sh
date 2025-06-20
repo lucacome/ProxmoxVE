@@ -66,7 +66,8 @@ $STD apt-get install --no-install-recommends -y \
   mesa-vulkan-drivers \
   ocl-icd-libopencl1 \
   tini \
-  zlib1g
+  zlib1g \
+  libc6
 $STD apt-get install -y \
   libgdk-pixbuf-2.0-dev librsvg2-dev libtool
 curl -fsSL https://repo.jellyfin.org/jellyfin_team.gpg.key | gpg --dearmor -o /etc/apt/keyrings/jellyfin.gpg
