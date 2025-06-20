@@ -100,10 +100,15 @@ if [[ ${prompt,,} =~ ^(y|yes)$ ]]; then
   touch ~/.openvino
   tmp_dir=$(mktemp -d)
   $STD pushd "$tmp_dir"
-  curl -fsSLO https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17384.11/intel-igc-core_1.0.17384.11_amd64.deb
-  curl -fsSLO https://github.com/intel/intel-graphics-compiler/releases/download/igc-1.0.17384.11/intel-igc-opencl_1.0.17384.11_amd64.deb
-  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/24.31.30508.7/intel-opencl-icd_24.31.30508.7_amd64.deb
-  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/24.31.30508.7/libigdgmm12_22.4.1_amd64.deb
+  curl -fsSLO https://github.com/intel/intel-graphics-compiler/releases/download/v2.11.7/intel-igc-core-2_2.11.7+19146_amd64.deb
+  curl -fsSLO https://github.com/intel/intel-graphics-compiler/releases/download/v2.11.7/intel-igc-opencl-2_2.11.7+19146_amd64.deb
+  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/25.18.33578.6/intel-ocloc-dbgsym_25.18.33578.6-0_amd64.ddeb
+  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/25.18.33578.6/intel-ocloc_25.18.33578.6-0_amd64.deb
+  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/25.18.33578.6/intel-opencl-icd-dbgsym_25.18.33578.6-0_amd64.ddeb
+  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/25.18.33578.6/intel-opencl-icd_25.18.33578.6-0_amd64.deb
+  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/25.18.33578.6/libigdgmm12_22.7.0_amd64.deb
+  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/25.18.33578.6/libze-intel-gpu1-dbgsym_25.18.33578.6-0_amd64.ddeb
+  curl -fsSLO https://github.com/intel/compute-runtime/releases/download/25.18.33578.6/libze-intel-gpu1_25.18.33578.6-0_amd64.deb
   $STD apt install -y ./*.deb
   $STD popd
   rm -rf "$tmp_dir"
