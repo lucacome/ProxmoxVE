@@ -97,6 +97,8 @@ msg_ok "Dependencies Installed"
 read -r -p "${TAB3}Install OpenVINO dependencies for Intel HW-accelerated machine-learning? y/N " prompt
 if [[ ${prompt,,} =~ ^(y|yes)$ ]]; then
   msg_info "Installing OpenVINO dependencies"
+  $STD apt-get install -t testing --no-install-recommends -y \
+    libc6 libzstd1 libstdc++6
   touch ~/.openvino
   tmp_dir=$(mktemp -d)
   $STD pushd "$tmp_dir"
