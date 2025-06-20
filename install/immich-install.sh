@@ -452,7 +452,7 @@ motd_ssh
 customize
 
 msg_info "Cleaning up"
-rm -f "$tmp_file"
+# rm -f "$tmp_file"
 $STD apt-get -y autoremove
 $STD apt-get -y autoclean
 msg_ok "Cleaned"
