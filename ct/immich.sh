@@ -34,21 +34,21 @@ function update_script() {
   BASE_DIR=${STAGING_DIR}/base-images
   SOURCE_DIR=${STAGING_DIR}/image-source
   cd /root
-  if [[ -f ~/.intel_version ]]; then
-    curl -fsSLO https://raw.githubusercontent.com/immich-app/immich/refs/heads/main/machine-learning/Dockerfile
-    readarray -t INTEL_URLS < <(sed -n "/intel/p" ./Dockerfile | awk '{print $3}')
-    INTEL_RELEASE="$(grep "intel-opencl-icd" ./Dockerfile | awk -F '_' '{print $2}')"
-    if [[ "$INTEL_RELEASE" != "$(cat ~/.intel_version)" ]]; then
-      msg_info "Updating Intel iGPU dependencies"
-      for url in "${INTEL_URLS[@]}"; do
-        curl -fsSLO "$url"
-      done
-      $STD apt install -y ./*.deb
-      rm ./*.deb
-      msg_ok "Intel iGPU dependencies updated"
-    fi
-    rm ~/Dockerfile
-  fi
+  # if [[ -f ~/.intel_version ]]; then
+  #   curl -fsSLO https://raw.githubusercontent.com/immich-app/immich/refs/heads/main/machine-learning/Dockerfile
+  #   readarray -t INTEL_URLS < <(sed -n "/intel/p" ./Dockerfile | awk '{print $3}')
+  #   INTEL_RELEASE="$(grep "intel-opencl-icd" ./Dockerfile | awk -F '_' '{print $2}')"
+  #   if [[ "$INTEL_RELEASE" != "$(cat ~/.intel_version)" ]]; then
+  #     msg_info "Updating Intel iGPU dependencies"
+  #     for url in "${INTEL_URLS[@]}"; do
+  #       curl -fsSLO "$url"
+  #     done
+  #     $STD apt install -y ./*.deb
+  #     rm ./*.deb
+  #     msg_ok "Intel iGPU dependencies updated"
+  #   fi
+  #   rm ~/Dockerfile
+  # fi
   if [[ -f ~/.immich_library_revisions ]]; then
     libraries=("libjxl" "libheif" "libraw" "imagemagick" "libvips")
     cd "$BASE_DIR"
