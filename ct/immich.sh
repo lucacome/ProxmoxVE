@@ -152,7 +152,7 @@ EOF
 
   cd "$SRC_DIR"/machine-learning
   export VIRTUAL_ENV="${ML_DIR}"/ml-venv
-  $STD /usr/local/bin/uv venv -p python3.11 "$VIRTUAL_ENV"
+  $STD /usr/local/bin/uv venv -p 3.11 --python-preference only-managed "$VIRTUAL_ENV"
   if [[ -f ~/.openvino ]]; then
     msg_info "Updating HW-accelerated machine-learning"
     /usr/local/bin/uv -q sync --extra openvino --no-cache --active
