@@ -1,14 +1,12 @@
-<!--🛑 New scripts must be submitted to [ProxmoxVED](https://github.com/community-scripts/ProxmoxVED) for testing.  
+<!--🛑 New scripts must be submitted to [ProxmoxVED](https://github.com/lucacome/ProxmoxVED) for testing.  
 PRs without prior testing will be closed. -->
 ## ✍️ Description  
 
-
-
 ## 🔗 Related PR / Issue  
+
 Link: #
 
-
-## ✅ Prerequisites  (**X** in brackets) 
+## ✅ Prerequisites  (**X** in brackets)
 
 - [ ] **Self-review completed** – Code follows project standards.  
 - [ ] **Tested thoroughly** – Changes work as expected.  
