@@ -11,7 +11,7 @@ var_disk="${var_disk:-20}"
 var_cpu="${var_cpu:-4}"
 var_ram="${var_ram:-4096}"
 var_os="${var_os:-debian}"
-var_version="${var_version:-12}"
+var_version="${var_version:-13}"
 var_unprivileged="${var_unprivileged:-1}"
 
 header_info "$APP"
@@ -155,7 +155,7 @@ EOF
   $STD /usr/local/bin/uv venv -p 3.11 --python-preference only-managed "$VIRTUAL_ENV"
   if [[ -f ~/.openvino ]]; then
     msg_info "Updating HW-accelerated machine-learning"
-    /usr/local/bin/uv -q sync --extra openvino --no-cache --active
+    /usr/local/bin/uv -q sync --extra openvino --no-cache --python ${VIRTUAL_ENV}
     patchelf --clear-execstack "${VIRTUAL_ENV}/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_pybind11_state.cpython-311-x86_64-linux-gnu.so"
     msg_ok "Updated HW-accelerated machine-learning"
   else
