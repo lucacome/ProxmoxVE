@@ -162,7 +162,7 @@ EOF
     export VIRTUAL_ENV="${ML_DIR}"/ml-venv
     if [[ -f ~/.openvino ]]; then
       msg_info "Updating HW-accelerated machine-learning"
-      $STD /usr/local/bin/uv sync --extra openvino --no-cache --active
+      $STD /usr/local/bin/uv sync --extra openvino --no-cache --active --python python3.11
       patchelf --clear-execstack "${VIRTUAL_ENV}/lib/python3.11/site-packages/onnxruntime/capi/onnxruntime_pybind11_state.cpython-311-x86_64-linux-gnu.so"
       msg_ok "Updated HW-accelerated machine-learning"
     else
